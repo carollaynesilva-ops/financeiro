@@ -1,17 +1,19 @@
 <?php
 
-require_once 'config.php'; // Esta linha inclui (importa) o conteúdo do arquivo chamado config.php.
+require_once 'config.php';
+require_once'mensagens.php'; // Esta linha inclui (importa) o conteúdo do arquivo chamado config.php.
 // Este arquivo geralmente contém informações essenciais de configuração, como credenciais de banco de dados (host, usuário, senha, nome do DB), chaves de API, ou constantes do sistema.
 // require_once garante que o arquivo seja incluído apenas uma vez, e se ele não for encontrado, o script parará (erro fatal).
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $senha = $_POST['senha'] ?? '';
-    echo "Email: $email - Senha:$senha";
+    // echo "Email: $email - Senha:$senha";
 
 
     //validar os campos
     if (empty($email) || empty($senha)) {
+        set_mensagem('Preencha todos os campos', 'erro');
         header('Location:login.php');
         exit;
     }
@@ -35,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
 
     }else{
+        set_mensagem('E-mail ou senha incorretos','erro');
         header('Location:login.php');
         exit;
 

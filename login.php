@@ -1,10 +1,16 @@
 <?php
 
 require_once 'config.php'; // puxa alguma coisa, tipo um <link>
+require_once 'mensagens.php';
+
+
+
 if (isset($_SESSION['usuario_id'])) {
     header('Location: index.php');
     exit;
 }
+
+// echo password_hash('12345678', PASSWORD_DEFAULT);
 
 ?>
 
@@ -20,7 +26,7 @@ if (isset($_SESSION['usuario_id'])) {
 <body>
 
     <h1>Login - Sistema Financeiro</h1>
-
+    <?php exibir_mensagem();?>
     <form action="autenticar.php" method="post">
 
         <div>
@@ -41,7 +47,9 @@ if (isset($_SESSION['usuario_id'])) {
 
     </form>
 
-    <p>Não tem conta? <a href="registrar.php">Cadastrar-se aqui</a></p>
+    <p>Não tem conta? <a href="registrar.php">Cadastrar-se aqui.</a></p>
+
+    
 
 </body>
 
