@@ -1,3 +1,5 @@
+<!-- conexao com o banco de dados -->
+
 <?php
 //confiura o banco de dados
 define('DB_HOST','localhost');

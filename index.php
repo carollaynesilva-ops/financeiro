@@ -8,10 +8,10 @@ if (!isset($_SESSION['usuario_id'])){
     exit;
 }
 
+$usuario_id = $_SESSION['usuario_id'];
+$usuario_nome = $_SESSION['usuario_nome'];
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -23,5 +23,11 @@ if (!isset($_SESSION['usuario_id'])){
 </head>
 <body>
     <h1>Sistema Financeiro</h1>
+
+    <div>
+        <p>Bem-vindo. <strong> <?php echo $usuario_nome?> </strong></p>
+        <!-- FORMA MENOR -->
+        <!-- <p>Bem-vindo. <strong> <?//= $usuario_nome?> </strong></p> -->
+    </div>
 </body>
 </html>
