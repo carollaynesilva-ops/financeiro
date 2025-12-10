@@ -54,12 +54,11 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
 </head>
 
 <body>
+    <div class="container">
     <h1>Sistema Financeiro</h1>
 
     <div>
         <p>Bem-vindo. <strong> <?php echo $usuario_nome ?> </strong></p>
-
-
         <a href="logout.php" class="sair">Sair</a>
     </div>
     <?php exibir_mensagem(); ?>
@@ -71,18 +70,18 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
         </ul>
     </nav>
     <h2>Resumo Financeiro</h2>
-    <div>
-        <div>
+    <div class="resumo">
+        <div class="card receita">
             <h3>Receitas</h3>
             <p> R$ <?php echo number_format($total_receitas, 2, ',', '.') ?></p>
         </div>
 
-        <div>
+        <div class="card despesa">
             <h3>Despesas</h3>
             <p> R$ <?php echo number_format($total_despesas, 2, ',', '.') ?></p>
         </div>
 
-        <div>
+        <div class="card saldo">
             <h3>Saldo</h3>
             <p> R$ <?php echo number_format($saldo, 2, ',', '.') ?></p>
         </div>
@@ -119,6 +118,7 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
         <p>Nenhuma transação cadastrada ainda.</p>
         <p><a href="transacoes_formulario.php">Cadastrar primeira transação</a></p>
     <?php endif; ?>
+    </div>
 </body>
 
 </html>
