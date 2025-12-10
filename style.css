@@ -61,3 +61,7 @@ button:hover{
     color: white;
     background-color: rgb(76, 76, 255);
 }
+
+ul li{
+    color: white;
+}
