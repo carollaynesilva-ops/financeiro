@@ -113,8 +113,10 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
-        <p><a href="transacoes_listar.php">Ver todas as transações</a></p>
+        <br>
+        <br>
+        <p><a href="transacoes_listar.php" class="ver-transacoes-btn">Ver todas as transações</a></p>
+
     <?php else: ?>
         <p>Nenhuma transação cadastrada ainda.</p>
         <p><a href="transacoes_formulario.php">Cadastrar primeira transação</a></p>
