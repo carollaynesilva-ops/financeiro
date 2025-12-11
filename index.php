@@ -55,75 +55,104 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
 </head>
 
 <body>
+
     <div class="container">
-    <h1>Sistema Financeiro</h1>
+        <div class="tema-dropdown">
+            <button class="tema-toggle">Temas ▼</button>
+            <div class="tema-opcoes">
+                <button onclick="mudarTema('tema-padrao')">Padrão</button>
+                <button onclick="mudarTema('tema-dark')">Dark Rosa</button>
+                <button onclick="mudarTema('tema-cupcake')">Cupcake</button>
+            </div>
+        </div>
+        <h1>Sistema Financeiro</h1>
 
-    <div>
-        <p>Bem-vindo. <strong> <?php echo $usuario_nome ?> </strong></p>
-        <a href="logout.php" class="sair">Sair</a>
-    </div>
-    <?php exibir_mensagem(); ?>
-    <nav>
-        <ul>
-            <li><a href="index.php">Dashboard</a></li>
-            <li><a href="categorias_listar.php">Categorias</a></li>
-            <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
-    <h2>Resumo Financeiro</h2>
-    <div class="resumo">
-        <div class="card receita">
-            <h3>Receitas</h3>
-            <p> R$ <?php echo number_format($total_receitas, 2, ',', '.') ?></p>
+        <div>
+            <p>Bem-vindo. <strong> <?php echo $usuario_nome ?> </strong></p>
+            <a href="logout.php" class="sair">Sair</a>
+        </div>
+        <?php exibir_mensagem(); ?>
+        <nav>
+            <ul>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="categorias_listar.php">Categorias</a></li>
+                <li><a href="transacoes_listar.php">Transações</a></li>
+            </ul>
+        </nav>
+        <h2>Resumo Financeiro</h2>
+        <div class="resumo">
+            <div class="card receita">
+                <h3>Receitas</h3>
+                <p> R$ <?php echo number_format($total_receitas, 2, ',', '.') ?></p>
+            </div>
+
+            <div class="card despesa">
+                <h3>Despesas</h3>
+                <p> R$ <?php echo number_format($total_despesas, 2, ',', '.') ?></p>
+            </div>
+
+            <div class="card saldo">
+                <h3>Saldo</h3>
+                <p> R$ <?php echo number_format($saldo, 2, ',', '.') ?></p>
+            </div>
         </div>
 
-        <div class="card despesa">
-            <h3>Despesas</h3>
-            <p> R$ <?php echo number_format($total_despesas, 2, ',', '.') ?></p>
-        </div>
+        <h2>Últimas Transações</h2>
 
-        <div class="card saldo">
-            <h3>Saldo</h3>
-            <p> R$ <?php echo number_format($saldo, 2, ',', '.') ?></p>
-        </div>
-    </div>
-
-    <h2>Últimas Transações</h2>
-    
-    <?php if (count($ultimas_transacoes) > 0): ?>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Tipo</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($ultimas_transacoes as $transacao): ?>
+        <?php if (count($ultimas_transacoes) > 0): ?>
+            <table border="1">
+                <thead>
                     <tr>
-                        <td><?php echo date('d/m/Y', strtotime($transacao['data_transacao'])); ?></td>
-                        <td><?php echo htmlspecialchars($transacao['descricao']); ?></td>
-                        <td><?php echo htmlspecialchars($transacao['categoria_nome'] ?? 'Sem categoria'); ?></td>
-                        <td><?php echo ucfirst($transacao['tipo']); ?></td>
-                        <td>R$ <?php echo number_format($transacao['valor'], 2, ',', '.'); ?></td>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <p><a href="transacoes_listar.php" class="ver-transacoes-btn">Ver todas as transações</a></p>
+                </thead>
+                <tbody>
+                    <?php foreach ($ultimas_transacoes as $transacao): ?>
+                        <tr>
+                            <td><?php echo date('d/m/Y', strtotime($transacao['data_transacao'])); ?></td>
+                            <td><?php echo htmlspecialchars($transacao['descricao']); ?></td>
+                            <td><?php echo htmlspecialchars($transacao['categoria_nome'] ?? 'Sem categoria'); ?></td>
+                            <td><?php echo ucfirst($transacao['tipo']); ?></td>
+                            <td>R$ <?php echo number_format($transacao['valor'], 2, ',', '.'); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <p><a href="transacoes_listar.php" class="ver-transacoes-btn">Ver todas as transações</a></p>
 
-    <?php else: ?>
-        <p>Nenhuma transação cadastrada ainda.</p>
-        <p><a href="transacoes_formulario.php">Cadastrar primeira transação</a></p>
-    <?php endif; ?>
+        <?php else: ?>
+            <p>Nenhuma transação cadastrada ainda.</p>
+            <p><a href="transacoes_formulario.php">Cadastrar primeira transação</a></p>
+        <?php endif; ?>
     </div>
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function mudarTema(tema) {
+            document.body.className = tema;
+        }
+    </script>
+    <script>
+        function mudarTema(tema) {
+            document.body.className = tema;
+        }
+
+        // Dropdown: abre e fecha
+        document.querySelector('.tema-toggle').addEventListener('click', function() {
+            document.querySelector('.tema-opcoes').style.display =
+                document.querySelector('.tema-opcoes').style.display === 'flex' ?
+                'none' :
+                'flex';
+        });
+    </script>
+
+
 </body>
 
 </html>

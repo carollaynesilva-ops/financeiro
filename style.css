@@ -204,3 +204,154 @@ a:hover {
     transform: translateY(-2px);
 }
 
+/* Botões de troca de tema */
+.tema-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tema-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+/* Cores dos botões */
+.tema-btn.padrao { background: #ffd7e8; color: #b01752; }
+.tema-btn.dark { background: #c2185b; color: white; }
+.tema-btn.cupcake { background: #ffe6f2; color: #d81b60; }
+
+/* Hover */
+.tema-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* ============================== */
+/*           TEMAS                */
+/* ============================== */
+
+/* Tema padrão (seu atual) */
+body.tema-padrao {
+    background: #ffdaea;
+    color: #333;
+}
+
+/* Tema dark rosa */
+body.tema-dark {
+    background: #160914;
+    color: #ffb9d6;
+}
+
+body.tema-dark .container {
+    background: #24121f;
+    color: #ffb9d6;
+    border: 1px solid #3a1e2f;
+}
+
+body.tema-dark nav a {
+    background: #3b1c2e;
+    color: #ffb9d6;
+    border-color: #5c2d48;
+}
+
+body.tema-dark table {
+    background: #301727;
+    color: #ffb9d6;
+}
+
+body.tema-dark table thead {
+    background: #c2185b;
+}
+
+/* Botão ver transações no dark */
+body.tema-dark .ver-transacoes-btn {
+    background: #ff74af;
+    color: white;
+}
+
+/* Tema cupcake */
+body.tema-cupcake {
+    background: #fdeff5;
+    color: #b92e66;
+}
+
+body.tema-cupcake .container {
+    background: #fff4fa;
+    border: 1px solid #ffcbe1;
+}
+
+body.tema-cupcake nav a {
+    background: #ffe9f3;
+    color: #c45186;
+}
+
+body.tema-cupcake table {
+    background: #fff8fc;
+}
+
+/* Botão ver transações no cupcake */
+body.tema-cupcake .ver-transacoes-btn {
+    background: #f48cbf;
+}
+
+/* Dropdown de temas */
+.tema-dropdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+/* Botão principal */
+.tema-toggle {
+    background: #d81b60;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.tema-toggle:hover {
+    background: #a11449;
+    transform: translateY(-2px);
+}
+
+/* Caixa com opções */
+.tema-opcoes {
+    position: absolute;
+    top: 48px;
+    background: #ffe6f1;
+    padding: 10px;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #f7c8dc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 150px;
+}
+
+/* Botões internos */
+.tema-opcoes button {
+    background: #ffffff;
+    border: 1px solid #f7c8dc;
+    color: #d81b60;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.tema-opcoes button:hover {
+    background: #ffd4e7;
+}
