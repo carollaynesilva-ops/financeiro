@@ -40,6 +40,9 @@ if ($id_categoria) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias - Sistma Financeiro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="pro_form.css">
     <style>
         /* Fundo geral com rosa clarinho */
         body {
@@ -54,7 +57,6 @@ if ($id_categoria) {
         form,
         h1,
         h2,
-        nav,
         div {
             max-width: 600px;
             margin: auto;
@@ -93,35 +95,6 @@ if ($id_categoria) {
 
         .sair:hover {
             background: #c64580;
-        }
-
-        /* Navegação */
-        nav {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #b43778;
-            font-weight: bold;
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: 0.2s;
-        }
-
-        nav a:hover {
-            background: #ffd3e8;
         }
 
         /* Formulário */
@@ -197,27 +170,68 @@ if ($id_categoria) {
             color: #9e2d44;
             text-align: center;
         }
+
+        /* Navbar customizado rosa */
+        .navbar {
+            background: #fff6fa !important;
+            /* fundo rosa clarinho */
+            border-bottom: 1px solid #f5d3e0;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand {
+            color: #c45a89 !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 15px;
+            /* espaçamento entre links */
+        }
+
+        .nav-item .nav-link {
+            color: #c45a89 !important;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-item .nav-link.active,
+        .nav-item .nav-link:hover {
+            background: #fbe2ef;
+            color: #a23070 !important;
+        }
+
+        /* Botão de logout dentro do nav */
+        .navbar .btn-sair {
+            background: #d75791;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .navbar .btn-sair:hover {
+            background: #c64580;
+        }
     </style>
 </head>
 
 <body>
-    dy>
+    <?php
+    include 'navbar.php';
+    ?>
     <h1>Sistema Financeiro</h1>
 
     <div>
         <p>Bem-vindo. <strong> <?php echo $usuario_nome ?> </strong></p>
-
-
-        <a href="logout.php" class="sair">Sair</a>
     </div>
     <?php exibir_mensagem(); ?>
-    <nav>
-        <ul>
-            <li><a href="index.php">Dashboard</a></li>
-            <li><a href="categorias_listar.php">Categorias</a></li>
-            <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
     <h2><?php echo $categoria ? 'Editar' : 'Nova'; ?> Categoria</h2>
 
     <form action="categorias_salvar.php" method="POST">
@@ -246,6 +260,7 @@ if ($id_categoria) {
             <a href="categorias_listar.php">Cancelar</a>
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

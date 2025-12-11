@@ -1,0 +1,46 @@
+/* Navbar customizado rosa */
+.navbar {
+    background: #fff6fa !important; /* fundo rosa clarinho */
+    border-bottom: 1px solid #f5d3e0;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    color: #c45a89 !important;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 15px; /* espaçamento entre links */
+}
+
+.nav-item .nav-link {
+    color: #c45a89 !important;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.nav-item .nav-link.active,
+.nav-item .nav-link:hover {
+    background: #fbe2ef;
+    color: #a23070 !important;
+}
+
+/* Botão de logout dentro do nav */
+.navbar .btn-sair {
+    background: #d75791;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.navbar .btn-sair:hover {
+    background: #c64580;
+}
