@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #fce5ef; /* rosa clarinho elegante */
+    background: #ffdaea; /* rosa clarinho elegante */
     color: #333;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
 .container {
     width: 100%;
     max-width: 900px;
-    background: #fff;
+    background: #ffdeeb;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
